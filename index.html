@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>About Manikandan</title>
+  <title>Manikandan | Web Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -28,6 +28,10 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -85,7 +89,7 @@
     }
 
     .hero-container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto 30px;
       overflow: hidden;
       border-radius: 10px;
@@ -102,7 +106,7 @@
     }
 
     .hero-text {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: bold;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
     }
@@ -120,7 +124,7 @@
     }
 
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       padding: 20px;
     }
@@ -212,12 +216,12 @@
     }
 
     .projects-grid {
-      display: grid;
+      display: flex;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 30px;
       margin-top: 20px;
     }
-
+ 
     .project-card {
       background: var(--section-bg);
       border-radius: 10px;
@@ -225,20 +229,22 @@
       overflow: hidden;
       text-decoration: none;
       color: inherit;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      transition: transform 0.3s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .project-card img {
-      width: 100%;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       object-fit: cover;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom: 1px solid #ccc;
     }
 
     .project-content {
@@ -249,10 +255,12 @@
     .project-content strong {
       font-size: 1.1rem;
       color: var(--accent);
-      margin-bottom: 8px;
       display: block;
+      margin-bottom: 6px;
     }
-
+.sticker :hover{
+  transform: scale(1.1);
+}
     .contact a {
       display: block;
       color: var(--accent);
@@ -266,6 +274,37 @@
 
     .contact i {
       margin-right: 8px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      background-color: var(--button-bg);
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--button-hover);
     }
 
     @media (max-width: 600px) {
@@ -286,6 +325,11 @@
       .about-text ul {
         text-align: left;
       }
+
+      .project-card img {
+        width: 100%;
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -293,44 +337,44 @@
 
   <header>
     <div class="logo">Manikandan</div>
-    <nav>
+    <nav aria-label="Primary navigation">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button id="toggle-mode">🌙 Dark Mode</button>
+    <button id="toggle-mode" aria-pressed="false" aria-label="Toggle dark mode">🌙 Dark Mode</button>
   </header>
 
-  <!-- Hero image container -->
   <div class="hero-container">
-    <div class="hero-section">
+    <div class="hero-section" role="banner" aria-label="Introduction banner with background image">
       <div class="hero-text">
-        👋 Hi, I'm Manikandan,<span id="dynamic-text"></span>
+        👋 Hi, I'm Manikandan,<span id="dynamic-text" aria-live="polite" aria-atomic="true"></span>
       </div>
     </div>
   </div>
 
   <main>
-    <section class="intro-section" id="about">
-      <img src="mk.jpg" alt="Manikandan Photo" class="profile-img" />
+    <section class="intro-section" id="about" tabindex="-1">
+      <img src="mk.jpg" alt="Manikandan smiling" class="profile-img" />
       <div class="about-text">
         <h1>About Me</h1>
-        <p>From Kumbakonam, I earned my B.Com degree from Bharathidasan University and pivoted into full-stack development driven by my passion for coding.</p>
-        <p>I build scalable web applications using <strong>Spring Boot, Hibernate, JavaScript, and React</strong>, aiming to deliver clean, maintainable, and effective solutions.</p>
-        <p><strong>My goal:</strong> To become a successful developer by learning continuously, tackling complex challenges, and working collaboratively.</p>
-        <ul>
-          <li>Clean & maintainable code</li>
-          <li>Lifelong learning</li>
-          <li>Team collaboration</li>
-        </ul>
+        <p>Hailing from Kumbakonam, I Completed  B.Com degree from Bharathidasan University. Driven by a strong passion for coding, I have transitioned into full-stack development.</p>
+<p>I specialize in building scalable, efficient web applications utilizing technologies such as <strong>Spring Boot, Hibernate, JavaScript, and React</strong>. My focus is on delivering clean, maintainable, and high-quality solutions.</p>
+<p><strong>My professional objective</strong> is to excel as a developer by continuously enhancing my skills, solving complex problems, and collaborating effectively within teams.</p>
+<ul>
+  <li>Writing clean, maintainable, and efficient code</li>
+  <li>Commitment to lifelong learning and professional growth</li>
+  <li>Strong team collaboration and communication skills</li>
+</ul>
+
         <a class="back-link" href="mk.pdf" download>📄 Download Resume</a>
       </div>
     </section>
 
-    <section class="section" id="skills">
+    <section class="section" id="skills" tabindex="-1">
       <h2>🛠️ Skills</h2>
-      <div class="sticker">
+      <div class="sticker" aria-label="Skills list">
         <div class="tech">HTML</div>
         <div class="tech">CSS</div>
         <div class="tech">Java</div>
@@ -341,24 +385,35 @@
       </div>
     </section>
 
-    <section class="section" id="projects">
+    <section class="section" id="projects" tabindex="-1">
       <h2>📂 Projects</h2>
       <div class="projects-grid" style="width: 200px;">
-        <a href="https://manimk2004.github.io/quiz/" target="_blank" class="project-card">
-          <img src="quiz.jpg" alt="Quiz App" />
+        <a href="https://manimk2004.github.io/quiz/" target="_blank" rel="noopener noreferrer" class="project-card" aria-label="Interactive Quiz App project">
+          <img src="quiz.jpg" alt="Screenshot of Quiz App" />
           <div class="project-content">
             <strong>Interactive Quiz App</strong>
             <p>A responsive quiz app exploring global facts and trivia. Built with HTML, CSS, and JavaScript.</p>
           </div>
         </a>
+        <!-- Add more project cards here if needed -->
       </div>
     </section>
 
-    <section class="section contact" id="contact">
+    <section class="section contact" id="contact" tabindex="-1">
       <h2>📬 Contact Me</h2>
-      <a href="mailto:manikandanmurali@gmail.com"><i class="fas fa-envelope"></i> manikandanmurali@gmail.com</a>
-      <a href="https://github.com/Manimk2004" target="_blank"><i class="fab fa-github"></i> github.com/Manimk2004</a>
-      <a href="https://linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      
+      <form id="contact-form" action="https://formspree.io/f/myylnnkl" method="POST" aria-label="Contact form">
+        <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
+        <input type="email" name="_replyto" placeholder="Your Email" required aria-required="true" />
+        <textarea name="message" rows="5" placeholder="Your Message" required aria-required="true"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div style="margin-top: 20px;" aria-label="Other contact information">
+        <a href="mailto:manikandanmurali@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> manikandanmurali@gmail.com</a>
+        <a href="https://github.com/Manimk2004" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> github.com/Manimk2004</a>
+        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+      </div>
     </section>
   </main>
 
@@ -366,12 +421,14 @@
     const toggleBtn = document.getElementById("toggle-mode");
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("dark");
-      toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️ Light Mode" : "🌙 Dark Mode";
+      const darkModeOn = document.body.classList.contains("dark");
+      toggleBtn.textContent = darkModeOn ? "☀️ Light Mode" : "🌙 Dark Mode";
+      toggleBtn.setAttribute("aria-pressed", darkModeOn);
     });
 
     const dynamicText = document.getElementById("dynamic-text");
     const phrases = [
-      "Creator of digital user experiences",
+      " Creator of digital user experiences",
       " passionate about coding",
       " Problem solver with coding skills",
       " Frontend and backend solution architect"
