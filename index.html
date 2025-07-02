@@ -2,36 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Manikandan | Web Developer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manikandan | Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
-      --bg-color: #f4f7fa;
-      --text-color: #333;
-      --accent: #2a6f9e;
+      --bg-color: #f0f0ff;
+      --text-color: #222;
+      --accent: #7c3aed;
       --section-bg: #ffffff;
-      --button-bg: #2a6f9e;
-      --button-hover: #1f4f78;
+      --btn-bg: #7c3aed;
+      --btn-hover: #9f5eff;
     }
 
     body.dark {
       --bg-color: #121212;
-      --text-color: #e0e0e0;
-      --accent: #00bfff;
-      --section-bg: #1e1e1e;
-      --button-bg: #00bfff;
-      --button-hover: #0080ff;
+      --text-color: #f0f0f0;
+      --section-bg: #1f1f1f;
+      --accent: #bb86fc;
+      --btn-bg: #7c4dff;
+      --btn-hover: #9a67ea;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -42,17 +39,21 @@
       transition: all 0.3s ease;
     }
 
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       background: var(--section-bg);
-      padding: 15px 25px;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
       margin: 20px;
+      border-radius: 8px;
+      padding: 15px 25px;
+      display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
     .logo {
@@ -62,65 +63,51 @@
     }
 
     nav a {
-      color: var(--text-color);
-      margin: 0 15px;
+      margin: 0 12px;
       font-weight: 500;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--accent);
     }
 
     #toggle-mode {
-      padding: 6px 14px;
-      background: var(--button-bg);
+      background: var(--btn-bg);
       color: white;
       border: none;
       border-radius: 20px;
+      padding: 6px 16px;
       cursor: pointer;
-      font-weight: 600;
-      transition: background 0.3s;
+      transition: background 0.3s ease;
     }
 
     #toggle-mode:hover {
-      background: var(--button-hover);
-    }
-
-    .hero-container {
-      max-width: 1000px;
-      margin: 0 auto 30px;
-      overflow: hidden;
-      border-radius: 10px;
+      background: var(--btn-hover);
     }
 
     .hero-section {
+      background: url("mk2.jpg") center/cover no-repeat;
+      height: 400px;
       display: flex;
       align-items: center;
-      background: url("mk2.jpg") center center/cover no-repeat;
-      height: 370px;
-      padding: 20px;
+      justify-content: center;
+      text-align: center;
+      border-radius: 10px;
+      margin: 20px;
       color: white;
-      position: relative;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
 
     .hero-text {
-      font-size: 2rem;
+      font-size: 2.4rem;
       font-weight: bold;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
     }
 
-    #dynamic-text {
-      border-right: 4px solid white;
-      padding-right: 4px;
-      display: inline-block;
-      animation: blink-caret 0.75s step-end infinite;
+    #dynamic-text::after {
+      content: '|';
+      animation: blink 0.7s steps(1) infinite;
     }
 
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: white; }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     main {
@@ -129,16 +116,19 @@
       padding: 20px;
     }
 
-    .intro-section {
+    .intro-section, .section {
       background: var(--section-bg);
       padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-      margin-bottom: 40px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .intro-section {
       display: flex;
+      flex-wrap: wrap;
       gap: 20px;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     .profile-img {
@@ -147,58 +137,33 @@
       border-radius: 10px;
       border: 3px solid var(--accent);
       object-fit: cover;
-      box-shadow: 0 2px 15px rgba(42,111,158,0.2);
-      flex-shrink: 0;
     }
 
     .about-text {
       flex: 1;
     }
 
-    .about-text h1 {
-      font-size: 1.8rem;
+    .about-text h1, .section h2 {
       color: var(--accent);
       margin-bottom: 15px;
-    }
-
-    .about-text p {
-      margin-bottom: 10px;
     }
 
     .about-text ul {
       list-style: disc;
       margin-left: 20px;
-      margin-bottom: 10px;
     }
 
     .back-link {
       display: inline-block;
-      padding: 8px 20px;
-      background: var(--button-bg);
-      color: #fff;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 600;
+      background: var(--btn-bg);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
       margin-top: 10px;
-      transition: background 0.3s;
     }
 
     .back-link:hover {
-      background: var(--button-hover);
-    }
-
-    .section {
-      background: var(--section-bg);
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.04);
-      margin-top: 30px;
-    }
-
-    .section h2 {
-      font-size: 1.6rem;
-      color: var(--accent);
-      margin-bottom: 15px;
+      background: var(--btn-hover);
     }
 
     .sticker {
@@ -208,109 +173,77 @@
     }
 
     .tech {
-      padding: 6px 14px;
-      background: var(--accent);
-      color: #fff;
+      background: var(--btn-bg);
+      color: white;
       border-radius: 20px;
-      font-weight: 500;
+      padding: 6px 14px;
+    }
+
+    .sticker :hover {
+      transform: scale(1.1);
     }
 
     .projects-grid {
-      display: flex;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
- 
+
     .project-card {
       background: var(--section-bg);
+      border: 1px solid rgba(124, 58, 237, 0.2);
       border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, border 0.3s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+      border: 1px solid var(--accent);
     }
 
     .project-card img {
-      width: 200px;
-      height: 200px;
+      width: 100%;
+      height: 180px;
       object-fit: cover;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      border-bottom: 1px solid #ccc;
     }
 
     .project-content {
       padding: 15px;
-      text-align: center;
-    }
-
-    .project-content strong {
-      font-size: 1.1rem;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 6px;
-    }
-.sticker :hover{
-  transform: scale(1.1);
-}
-    .contact a {
-      display: block;
-      color: var(--accent);
-      margin-bottom: 8px;
-      text-decoration: none;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-    .contact i {
-      margin-right: 8px;
     }
 
     form {
       display: flex;
       flex-direction: column;
       gap: 15px;
-      margin-top: 15px;
     }
 
     input, textarea {
-      padding: 10px;
+      background: #f3f3f3;
       border: 1px solid #ccc;
       border-radius: 6px;
+      padding: 10px;
       font-size: 1rem;
-      font-family: 'Poppins', sans-serif;
-      resize: vertical;
     }
 
     button[type="submit"] {
-      background-color: var(--button-bg);
+      background-color: var(--btn-bg);
       color: white;
       padding: 10px;
       border: none;
       border-radius: 6px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
 
     button[type="submit"]:hover {
-      background-color: var(--button-hover);
+      background-color: var(--btn-hover);
     }
 
     @media (max-width: 600px) {
       .hero-text {
-        font-size: 1.2rem;
-        text-align: center;
+        font-size: 1.6rem;
       }
 
       .intro-section {
@@ -321,15 +254,6 @@
       .profile-img {
         margin: 0 auto;
       }
-
-      .about-text ul {
-        text-align: left;
-      }
-
-      .project-card img {
-        width: 100%;
-        height: auto;
-      }
     }
   </style>
 </head>
@@ -337,132 +261,126 @@
 
   <header>
     <div class="logo">Manikandan</div>
-    <nav aria-label="Primary navigation">
+    <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button id="toggle-mode" aria-pressed="false" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+    <button id="toggle-mode"><i class="fas fa-moon"></i> Dark Mode</button>
   </header>
 
-  <div class="hero-container">
-    <div class="hero-section" role="banner" aria-label="Introduction banner with background image">
-      <div class="hero-text">
-        👋 Hi, I'm Manikandan,<span id="dynamic-text" aria-live="polite" aria-atomic="true"></span>
-      </div>
+  <section class="hero-section">
+    <div class="hero-text">
+      👋 Hi, I'm Manikandan, <span id="dynamic-text"></span>
     </div>
-  </div>
+  </section>
 
   <main>
-    <section class="intro-section" id="about" tabindex="-1">
-      <img src="mk.jpg" alt="Manikandan smiling" class="profile-img" />
+    <section class="intro-section" id="about">
+      <img src="mk.jpg" alt="Manikandan" class="profile-img" />
       <div class="about-text">
         <h1>About Me</h1>
-        <p>Hailing from Kumbakonam, I Completed  B.Com degree at Swami Dayananda College which is affiliated with Bharathidasan University. Driven by a strong passion for coding, I have transitioned into full-stack development.</p>
-<p>I specialize in building scalable, efficient web applications utilizing technologies such as <strong>Spring Boot, Hibernate, JavaScript, and React</strong>. My focus is on delivering clean, maintainable, and high-quality solutions.</p>
-<p><strong>My professional objective</strong> is to excel as a developer by continuously enhancing my skills, solving complex problems, and collaborating effectively within teams.</p>
-<ul>
-  <li>Writing clean, maintainable, and efficient code</li>
-  <li>Commitment to lifelong learning and professional growth</li>
-  <li>Strong team collaboration and communication skills</li>
-</ul>
-
-        <a class="back-link" href="mk.pdf" download>📄 Download Resume</a>
+        <p>I'm a Full Stack Developer from Kumbakonam, passionate about building scalable apps.</p>
+        <p>Skilled in Spring Boot, React, JavaScript, and more. I love writing clean code and learning new technologies.</p>
+        <ul>
+          <li>Clean, maintainable code</li>
+          <li>Team player & collaborator</li>
+          <li>Continuous learning</li>
+        </ul>
+        <a href="mk.pdf" class="back-link" download>📄 Download Resume</a>
       </div>
     </section>
 
-    <section class="section" id="skills" tabindex="-1">
+    <section class="section" id="skills">
       <h2>🛠️ Skills</h2>
-      <div class="sticker" aria-label="Skills list">
+      <div class="sticker">
         <div class="tech">HTML</div>
         <div class="tech">CSS</div>
         <div class="tech">Java</div>
         <div class="tech">JavaScript</div>
         <div class="tech">Spring Boot</div>
         <div class="tech">React</div>
-        <div class="tech">Hibernate</div>
       </div>
     </section>
 
-    <section class="section" id="projects" tabindex="-1">
-      <h2>📂 Projects</h2>
-      <div class="projects-grid" style="width: 200px;">
-        <a href="https://manimk2004.github.io/quiz/" target="_blank" rel="noopener noreferrer" class="project-card" aria-label="Interactive Quiz App project">
-          <img src="quiz.jpg" alt="Screenshot of Quiz App" />
+    <section class="section" id="projects">
+      <h2>📁 Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="quiz.jpg" alt="Project 1" />
           <div class="project-content">
-            <strong>Interactive Quiz App</strong>
-            <p>A responsive quiz app exploring global facts and trivia. Built with HTML, CSS, and JavaScript.</p>
+            <h3>Interactive Quiz</h3>
+            <p>A responsive quiz app built with HTML, CSS, and JavaScript. Explore fun trivia!</p>
+            <a href="#" target="_blank">View Project</a>
           </div>
-        </a>
-        <!-- Add more project cards here if needed -->
+        </div>
+        <div class="project-card">
+          <img src="project2.jpg" alt="Project 2" />
+          <div class="project-content">
+            <h3>Project Title 2</h3>
+            <p>Brief description of the project.</p>
+            <a href="#" target="_blank">View Project</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section contact" id="contact" tabindex="-1">
+    <section class="section" id="contact">
       <h2>📬 Contact Me</h2>
-      
-      <form id="contact-form" action="https://formspree.io/f/myylnnkl" method="POST" aria-label="Contact form">
-        <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
-        <input type="email" name="_replyto" placeholder="Your Email" required aria-required="true" />
-        <textarea name="message" rows="5" placeholder="Your Message" required aria-required="true"></textarea>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
       </form>
-
-      <div style="margin-top: 20px;" aria-label="Other contact information">
-        <a href="mailto:manikandanmurali@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> manikandanmurali@gmail.com</a>
-        <a href="https://github.com/Manimk2004" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> github.com/Manimk2004</a>
-        <a href="https://www.linkedin.com/in/manikandan-m-3a0305365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+      <div style="margin-top: 20px;">
+        <a href="mailto:manikandanmurali@gmail.com"><i class="fas fa-envelope"></i> manikandanmurali@gmail.com</a> <br>
+        <a href="https://github.com/Manimk2004" target="_blank"><i class="fab fa-github"></i> github.com/Manimk2004</a> <br>
+        <a href="https://www.linkedin.com/in/manikandan-m-3a0305365" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
     </section>
   </main>
 
   <script>
-    const toggleBtn = document.getElementById("toggle-mode");
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      const darkModeOn = document.body.classList.contains("dark");
-      toggleBtn.textContent = darkModeOn ? "☀️ Light Mode" : "🌙 Dark Mode";
-      toggleBtn.setAttribute("aria-pressed", darkModeOn);
+    const toggleBtn = document.getElementById('toggle-mode'); 
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark'); 
+      if (document.body.classList.contains('dark')) {
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+      } else {
+        toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+      }
     });
 
-    const dynamicText = document.getElementById("dynamic-text");
-    const phrases = [
-      " Creator of digital user experiences",
-      " passionate about coding",
-      " Problem solver with coding skills",
-      " Frontend and backend solution architect"
-    ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    const typingDelay = 100;
-    const erasingDelay = 50;
-    const newPhraseDelay = 2000;
+    const words = ["a Developer", "a Problem Solver", "a Tech Enthusiast"];
+    let i = 0, j = 0, currentWord = '', isDeleting = false;
+    const dynamicText = document.getElementById('dynamic-text');
 
     function type() {
-      if (charIndex < phrases[phraseIndex].length) {
-        dynamicText.textContent += phrases[phraseIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, typingDelay);
-      } else {
-        setTimeout(erase, newPhraseDelay);
-      }
-    }
+      if (i >= words.length) i = 0;
+      currentWord = words[i];
 
-    function erase() {
-      if (charIndex > 0) {
-        dynamicText.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, erasingDelay);
+      if (!isDeleting) {
+        dynamicText.textContent = currentWord.substring(0, j + 1);
+        j++;
+        if (j === currentWord.length) {
+          isDeleting = true;
+          setTimeout(type, 1500);
+          return;
+        }
       } else {
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(type, typingDelay);
+        dynamicText.textContent = currentWord.substring(0, j - 1);
+        j--;
+        if (j === 0) {
+          isDeleting = false;
+          i++;
+        }
       }
+      setTimeout(type, isDeleting ? 100 : 150);
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      if (phrases.length) setTimeout(type, newPhraseDelay);
-    });
+    type();
   </script>
+
 </body>
 </html>
